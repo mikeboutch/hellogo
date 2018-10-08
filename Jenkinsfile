@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-       stage('echo'){
+       stage('Build'){
            steps{
-            echo 'Echo...'
+            bat "go build"
            }
        } 
     }
