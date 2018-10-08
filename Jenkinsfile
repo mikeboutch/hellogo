@@ -5,6 +5,11 @@ pipeline {
            steps{
             bat "go build"
            }
-       } 
+       }
+       stage('Archive') {
+           steps{
+               archiveArtifacts("*.exe")
+           }
+       }
     }
 }
