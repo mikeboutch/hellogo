@@ -1,15 +1,20 @@
 pipeline {
     agent any
     stages {
-       stage('Build'){
+        stage('init'){
+            steps{
+                setVerYMX()
+            }
+        }
+        stage('Build'){
            steps{
             bat "go build"
            }
-       }
-       stage('Archive') {
-           steps{
+        }
+        stage('Archive') {
+            steps{
                archiveArtifacts("*.exe")
-           }
-       }
+            }
+        }
     }
 }
