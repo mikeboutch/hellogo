@@ -10,6 +10,6 @@
     <description>My package description.</description>
   </metadata>
   <files>
-    <file src=".\hellogo.exe" target="tools\hellogo.exe" />
+    <file src=".\hello.exe" target="tools\hellogo.exe" />
   </files>
 </package>

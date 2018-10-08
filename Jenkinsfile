@@ -7,13 +7,20 @@ pipeline {
             }
         }
         stage('Build'){
-           steps{
-            bat "go build"
-           }
+            steps{
+                bat "go clean"
+                bat "go build hello.go"
+            }
+        }
+        stage('Package Chocolatey'){
+            steps{
+                bat "choco pack --version ${env.JOB_VERSION}"   
+            }
         }
         stage('Archive') {
             steps{
                archiveArtifacts("*.exe")
+               archiveArtifacts("*.nupkg")
             }
         }
     }
